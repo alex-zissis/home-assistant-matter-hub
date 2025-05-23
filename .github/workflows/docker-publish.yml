@@ -42,7 +42,8 @@ jobs:
         run: |
           cd apps/docker/standalone
           pnpm install --frozen-lockfile
-          pnpm pack
+          pnpm pack --out package.tgz
+          mv ../package.tgz .
 
       - name: Build and push Docker image (sha and latest tags)
         run: |
