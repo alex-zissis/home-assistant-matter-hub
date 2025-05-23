@@ -39,8 +39,13 @@ export const VacuumRvcRunModeServer = RvcRunModeServer({
   start: (_, agent) => {
     const logger = agent.env.get(LoggerService).get("VacuumRvcRunModeServer");
     const serviceArea = agent.get(ServiceAreaBaseServer);
-    logger.info(`service area: ${serviceArea}`);
-    if (serviceArea.state.selectedAreas.length > 0) {
+
+    if (
+      Array.isArray(serviceArea.state.selectedAreas) &&
+      serviceArea.state.selectedAreas.length > 0 &&
+      Array.isArray(serviceArea.state.supportedMaps) &&
+      serviceArea.state.supportedMaps.length > 0
+    ) {
       logger.info(`starting room clean: ${serviceArea.state.selectedAreas}`);
       return {
         action: "tplink.clean_rooms",
@@ -50,6 +55,7 @@ export const VacuumRvcRunModeServer = RvcRunModeServer({
         },
       };
     }
+
     return { action: "vacuum.start" };
   },
   returnToBase: () => ({ action: "vacuum.return_to_base" }),

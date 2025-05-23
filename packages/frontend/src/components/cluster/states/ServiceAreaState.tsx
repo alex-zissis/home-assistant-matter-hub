@@ -4,6 +4,6 @@ export interface ServiceAreaStateProps {
   state: ServiceAreaClusterState;
 }
 
-export const ServiceAreaState = (props: ServiceAreaStateProps) => {
+export const ServiceAreaState = ({}: ServiceAreaStateProps) => {
   return <></>;
 };
