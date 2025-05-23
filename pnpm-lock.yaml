@@ -80,6 +80,9 @@ importers:
       '@matter/main':
         specifier: 0.13.0
         version: 0.13.0
+      '@matter/node':
+        specifier: 0.13.0
+        version: 0.13.0(patch_hash=b8eccb2e76c791b43d6920bf2442c482cb1343272eea81624bc0bdc5f4fc8ff3)
       '@matter/nodejs':
         specifier: 0.13.0
         version: 0.13.0
@@ -147,6 +150,9 @@ importers:
       '@matter/main':
         specifier: 0.13.0
         version: 0.13.0
+      '@matter/node':
+        specifier: 0.13.0
+        version: 0.13.0(patch_hash=b8eccb2e76c791b43d6920bf2442c482cb1343272eea81624bc0bdc5f4fc8ff3)
       '@matter/nodejs':
         specifier: 0.13.0
         version: 0.13.0
