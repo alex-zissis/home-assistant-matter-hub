@@ -43,9 +43,6 @@ jobs:
       - name: Build and push Docker image (sha and latest tags)
         run: |
           cd apps/docker/standalone
-          cp ../../../package.json .
-          cp ../../../pnpm-lock.yaml .
-          cp ../../../pnpm-workspace.yaml .
           # Tag with sha and latest
           export GIT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
           # Update package.tgz if needed
