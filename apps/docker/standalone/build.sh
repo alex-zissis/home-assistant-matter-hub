@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Usage:
-#   ./build.sh --sha <sha> [--push] [--latest] [--all-platforms]
+#   ./build.sh [--sha <sha>] [--push] [--latest] [--all-platforms]
 #
-#   --sha <sha>         The short git SHA to use as the image tag (required)
+#   --sha <sha>         The short git SHA to use as the image tag. Will fallback to git SHA if not provided.
 #   --push              Push the image to the registry
 #   --latest            Also tag the image as 'latest'
 #   --all-platforms     Build for linux/amd64, linux/arm/v7, linux/arm64/v8
@@ -32,8 +32,16 @@ while test $# -gt 0
   done
 
 if [ -z "$SHA" ]; then
-  echo "Error: --sha <sha> argument is required."
-  exit 1
+  if command -v git >/dev/null 2>&1; then
+    SHA=$(git rev-parse --short HEAD 2>/dev/null)
+    if [ -z "$SHA" ]; then
+      echo "Error: Could not determine git SHA. Please provide --sha <sha>."
+      exit 1
+    fi
+  else
+    echo "Error: --sha <sha> argument is required and git is not available."
+    exit 1
+  fi
 fi
 
 TAGS=("$IMAGE_NAME:$SHA")
