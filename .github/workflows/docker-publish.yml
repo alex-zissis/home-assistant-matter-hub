@@ -13,6 +13,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set outputs
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -43,10 +47,6 @@ jobs:
       - name: Build and push Docker image (sha and latest tags)
         run: |
           cd apps/docker/standalone
-          # Tag with sha and latest
-          export GIT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
-          # Update package.tgz if needed
-          if [ ! -f package.tgz ]; then pnpm pack; fi
-          ./build.sh --push --latest --all-platforms
+          ./build.sh --sha ${{ steps.vars.outputs.sha_short }} --push --latest --all-platforms
         env:
           DOCKER_CLI_EXPERIMENTAL: enabled
