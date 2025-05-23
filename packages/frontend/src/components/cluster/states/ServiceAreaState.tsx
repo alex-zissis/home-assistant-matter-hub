@@ -5,15 +5,5 @@ export interface ServiceAreaStateProps {
 }
 
 export const ServiceAreaState = (props: ServiceAreaStateProps) => {
-  const { areas } = props.state;
-  if (Array.isArray(areas)) {
-    return (
-      <ul>
-        {areas.map((area, idx) => (
-          <li key={area.mapId ?? idx}>{area.name ?? `Area ${idx + 1}`}</li>
-        ))}
-      </ul>
-    );
-  }
-  return <div>serviceArea state: {JSON.stringify(props.state)}</div>;
+  return <></>;
 };
