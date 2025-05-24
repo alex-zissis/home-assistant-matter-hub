@@ -151,8 +151,8 @@ importers:
         specifier: 0.13.0
         version: 0.13.0
       '@matter/node':
-        specifier: 0.13.0
-        version: 0.13.0(patch_hash=b8eccb2e76c791b43d6920bf2442c482cb1343272eea81624bc0bdc5f4fc8ff3)
+        specifier: file:../../tars/matter-node-0.13.0.tgz
+        version: file:tars/matter-node-0.13.0.tgz(patch_hash=b8eccb2e76c791b43d6920bf2442c482cb1343272eea81624bc0bdc5f4fc8ff3)
       '@matter/nodejs':
         specifier: 0.13.0
         version: 0.13.0
@@ -1248,6 +1248,10 @@ packages:
 
   '@matter/node@0.13.0':
     resolution: {integrity: sha512-HQkzpRnhAUfj9u2ijkT4qgyFzEfaNqyAxh+dgMpLKnbbGQoHTskJ/wEgkRRI7B0Q57mr6VJ5KgXYdbXUYA7xFA==}
+
+  '@matter/node@file:tars/matter-node-0.13.0.tgz':
+    resolution: {integrity: sha512-Ge4b80e0hD+N3SPvCuiDATO36GptCnN8RY0ghEh9naofXgZWdC1WmsT5e3aCojc6TZBaPbk3pPmPWVsVfbhBRA==, tarball: file:tars/matter-node-0.13.0.tgz}
+    version: 0.13.0
 
   '@matter/nodejs@0.13.0':
     resolution: {integrity: sha512-ThWrLZJo7UH4Ebanf3gxkhe2p8vq4X3PxyRG+ICDRGPfzSAJZ3znh2hD/zdvcdyzQlSoXeLpFbLpTkJu7aRMHg==}
@@ -5243,6 +5247,13 @@ snapshots:
       '@matter/general': 0.13.0
 
   '@matter/node@0.13.0(patch_hash=b8eccb2e76c791b43d6920bf2442c482cb1343272eea81624bc0bdc5f4fc8ff3)':
+    dependencies:
+      '@matter/general': 0.13.0
+      '@matter/model': 0.13.0
+      '@matter/protocol': 0.13.0
+      '@matter/types': 0.13.0
+
+  '@matter/node@file:tars/matter-node-0.13.0.tgz(patch_hash=b8eccb2e76c791b43d6920bf2442c482cb1343272eea81624bc0bdc5f4fc8ff3)':
     dependencies:
       '@matter/general': 0.13.0
       '@matter/model': 0.13.0
