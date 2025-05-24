@@ -38,12 +38,10 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
 
-      - name: Build and pack home-assistant-matter-hub
+      - name: Build and pack
         run: |
-          cd apps/home-assistant-matter-hub
           pnpm install --frozen-lockfile
           pnpm build
-          pnpm run pack
 
       - name: Install dependencies and pack docker standalone
         run: |
