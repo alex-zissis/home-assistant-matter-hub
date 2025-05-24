@@ -36,9 +36,14 @@ jobs:
           node-version: 20
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
 
-      - name: Install dependencies and pack
+      - name: Build and pack
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm build
+
+      - name: Install dependencies and pack docker standalone
         run: |
           cd apps/docker/standalone
           pnpm install --frozen-lockfile
@@ -47,7 +52,9 @@ jobs:
 
       - name: Build and push Docker image (sha and latest tags)
         run: |
-          cd apps/docker/standalone
+          cd apps/docker
+          pnpm exec node retrieve-package.js
+          cd standalone
           ./build.sh --sha ${{ steps.vars.outputs.sha_short }} --push --latest --all-platforms
         env:
           DOCKER_CLI_EXPERIMENTAL: enabled

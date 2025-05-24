@@ -19,6 +19,7 @@ packages/docs/_build/
 apps/home-assistant-matter-hub/pack
 apps/home-assistant-matter-hub/README.md
 apps/home-assistant-matter-hub/LICENSE
+apps/docker/standalone/patches/
 
 *.tsbuildinfo
 tmp/
