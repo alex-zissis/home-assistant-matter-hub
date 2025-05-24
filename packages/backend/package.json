@@ -15,7 +15,6 @@
     "@home-assistant-matter-hub/common": "workspace:*",
     "@matter/general": "0.13.0",
     "@matter/main": "0.13.0",
-    "@matter/node": "file:../../tars/matter-node-0.13.0.tgz",
     "@matter/nodejs": "0.13.0",
     "ajv": "8.17.1",
     "async-lock": "1.4.1",
