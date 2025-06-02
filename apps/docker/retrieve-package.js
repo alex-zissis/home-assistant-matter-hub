@@ -28,7 +28,11 @@ console.log(`Copied ${packagePath} to ${destinationStandalone}`);
 
 // Copy all patches
 const patchesDir = path.join(import.meta.dirname, "..", "..", "patches");
-const patchesDestination = path.join(import.meta.dirname, "standalone", "patches");
+const patchesDestination = path.join(
+  import.meta.dirname,
+  "standalone",
+  "patches",
+);
 
 // Create patches directory if it doesn't exist
 if (!fs.existsSync(patchesDestination)) {
@@ -38,10 +42,10 @@ if (!fs.existsSync(patchesDestination)) {
 // Copy all patch files
 const patchFiles = fs.readdirSync(patchesDir);
 for (const patchFile of patchFiles) {
-  if (patchFile.endsWith('.patch')) {
+  if (patchFile.endsWith(".patch")) {
     fs.copyFileSync(
       path.join(patchesDir, patchFile),
-      path.join(patchesDestination, patchFile)
+      path.join(patchesDestination, patchFile),
     );
     console.log(`Copied patch ${patchFile} to ${patchesDestination}`);
   }
